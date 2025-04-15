@@ -155,7 +155,7 @@ For better performance on resource-constrained devices:
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request. I would like to improve the accuracy of the model since it seems that the model's accuracy is still quite low now.
 
 ## License
 

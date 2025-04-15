@@ -2,7 +2,6 @@
 
 A comprehensive computer vision project that implements real-time facial expression recognition using deep learning techniques. This system can detect faces in a video stream and classify facial expressions into seven emotional categories (happy, sad, angry, surprised, neutral, disgust, fear).
 
-![Facial Expression Demo](data/output_frames/synthetic_001.jpg)
 
 ## Features
 

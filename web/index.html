@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Expression Recognition System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .webcam-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        #webcam, #canvas {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 0 10px;
+        }
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #expression {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .emotion-bars {
+            margin: 20px 0;
+        }
+        .emotion-bar {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .emotion-label {
+            width: 100px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        .bar-container {
+            flex-grow: 1;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 20px;
+        }
+        .bar {
+            height: 100%;
+            transition: width 0.3s;
+        }
+        .bar-value {
+            width: 50px;
+            text-align: left;
+            padding-left: 10px;
+        }
+        code {
+            display: block;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .info-section {
+            margin: 30px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+        }
+        .note {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Real-time Facial Expression Recognition</h1>
+            <p>A computer vision project powered by deep learning</p>
+        </header>
+
+        <div class="note">
+            <p><strong>Note:</strong> This is a web interface demonstration. The actual model runs on Python with TensorFlow and OpenCV. 
+            To run the fully functional system with real-time webcam processing, please use the Python implementation.</p>
+        </div>
+
+        <section class="info-section">
+            <h2>Project Overview</h2>
+            <p>This project implements a real-time facial expression recognition system that can identify emotions from facial expressions in video streams. The system uses computer vision for face detection and deep learning for classifying expressions into emotional categories.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li>Real-time face detection using OpenCV</li>
+                <li>Facial expression classification using a custom CNN</li>
+                <li>Support for multiple input sources (webcam, video files, images)</li>
+                <li>Visualization of emotion probabilities</li>
+                <li>High accuracy emotion detection</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Technical Implementation</h2>
+            <p>The system is built with the following technologies:</p>
+            <ul>
+                <li><strong>Python</strong> - Core programming language</li>
+                <li><strong>TensorFlow/Keras</strong> - Deep learning framework</li>
+                <li><strong>OpenCV</strong> - Computer vision library for face detection and image processing</li>
+                <li><strong>NumPy</strong> - Numerical computing library</li>
+                <li><strong>Matplotlib</strong> - Visualization library</li>
+            </ul>
+            
+            <h3>Model Architecture</h3>
+            <p>The facial expression recognition model uses a Convolutional Neural Network (CNN) with the following architecture:</p>
+            <ul>
+                <li>Multiple convolutional blocks with batch normalization</li>
+                <li>Max pooling layers for downsampling</li>
+                <li>Dropout layers to prevent overfitting</li>
+                <li>Dense layers for classification</li>
+                <li>Softmax activation for 7 emotion categories</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Project Structure</h2>
+            <code>
+facial_expression_recognition/
+├── main.py             # Main application entry point
+├── train.py            # Training script
+├── requirements.txt    # Package dependencies
+├── models/
+│   ├── __init__.py
+│   └── expression_classifier.py  # CNN model implementation
+├── utils/
+│   ├── __init__.py
+│   ├── face_detector.py         # Face detection module
+│   ├── visualization.py         # Results visualization
+│   └── dataset_utils.py         # Dataset handling utilities
+├── data/               # Dataset storage
+└── web/                # Web interface (you are here)
+            </code>
+        </section>
+
+        <section class="info-section">
+            <h2>Usage Instructions</h2>
+            <h3>Installation</h3>
+            <code>
+# Clone the repository
+git clone [your-repo-url]
+
+# Navigate to the project
+cd facial_expression_recognition
+
+# Install dependencies
+pip install -r requirements.txt
+            </code>
+
+            <h3>Running the Application</h3>
+            <code>
+# For webcam mode (default)
+python main.py --display
+
+# For video file processing
+python main.py --source video --path path/to/video.mp4 --display
+
+# For image processing
+python main.py --source image --path path/to/image.jpg --display
+            </code>
+
+            <h3>Training the Model</h3>
+            <code>
+# Download the FER2013 dataset and place in data/ directory
+# Then run:
+python train.py --data data/fer2013.csv --epochs 50 --augment --plot
+            </code>
+        </section>
+
+        <footer>
+            <p>Created as a demonstration of computer vision expertise</p>
+        </footer>
+    </div>
+</body>
+</html>

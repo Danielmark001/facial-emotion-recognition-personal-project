@@ -54,8 +54,8 @@ facial_expression_recognition/
 
 ```bash
 # Clone the repository
-git clone https://github.com/Danielmark001/facial_recognition_personal_project.git
-cd facial_recognition_personal_project
+git clone https://github.com/Danielmark001/facial-emotion-recognition-personal-project.git
+cd facial-emotion-recognition-personal-project
 
 # Install dependencies
 pip install -r requirements.txt
@@ -167,8 +167,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - OpenCV for computer vision algorithms
 - TensorFlow for the deep learning framework
 
-## Contact
 
-Daniel Mark - [GitHub](https://github.com/Danielmark001)
-
-Project Link: [https://github.com/Danielmark001/facial_recognition_personal_project](https://github.com/Danielmark001/facial_recognition_personal_project)
